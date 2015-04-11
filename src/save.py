@@ -8,8 +8,9 @@ import json
 
 from flask import request
 
+
 def save():
-    print request.form
+    print request.json
     return json.dumps({
         'url': u'https://maps.google.com/'
     })
