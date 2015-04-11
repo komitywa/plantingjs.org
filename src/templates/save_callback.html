@@ -1,0 +1,22 @@
+<html>
+<head>
+</head>
+<body>
+
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+
+function save_callback(planting) {
+    $.post('/save',
+        {some: 'dasdas'},
+        function (data) {
+            console.log('success');
+        }
+    );
+}
+
+save_callback({"planting": []});
+
+</script>
+</body>
+</html>

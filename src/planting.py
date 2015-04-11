@@ -5,6 +5,7 @@ module: planting
 """
 
 from flask import Flask
+from flask import render_template
 
 from save import save
 
@@ -16,7 +17,12 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello World!'
 
-save = app.route('/save')(save)
+@app.route('/callback')
+def callback():
+    return render_template('save_callback.html')
+
+
+save = app.route('/save', methods=['POST'])(save)
 
 
 if __name__ == '__main__':
