@@ -44,7 +44,7 @@ function save_callback(planting) {
         contentType: 'application/json;charset=UTF-8',
         dataType: 'html',
         success: function(responseData, textStatus, jqXHR) {
-            console.log('success');
+            $(location).attr('href',JSON.parse(responseData)['url']);
         },
     });
 
