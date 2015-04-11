@@ -10,6 +10,7 @@ do
     cd ../plantingjs-simpleserver/src
     git pull
     cp ../../plantingjs/dist static -r
+    python create_db.py
     killall python
     python planting.py &
     sleep 900
