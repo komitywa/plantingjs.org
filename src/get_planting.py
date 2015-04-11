@@ -6,6 +6,7 @@ module: get_planting
 import json
 import sqlite3
 
+from flask import jsonify
 from flask import request
 
 
@@ -50,7 +51,7 @@ class Planting(object):
 def get_planting(path):
     request_id = path
     planting = Planting(id_=request_id)
-    return str({
+    return jsonify(**{
         "manifesto": planting.manifesto,
         "lat": planting.lat,
         "lng": planting.lng,
