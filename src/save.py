@@ -29,23 +29,6 @@ def save_planting(conn, planting_data):
             %(zoom)s
         )
     """ % planting_data)
-    print (u"""
-        INSERT INTO plantings (
-            manifesto,
-            lat,
-            lng,
-            heading,
-            pitch,
-            zoom
-        ) VALUES (
-            "%(manifesto)s",
-            %(lat)s,
-            %(lng)s,
-            %(heading)s,
-            %(pitch)s,
-            %(zoom)s
-        )
-    """ % planting_data)
     c.execute(u"""SELECT last_insert_rowid() FROM plantings""")
     conn.commit()
     return c.fetchone()[0]
@@ -57,23 +40,6 @@ def save_object(conn, planting_id, object_data):
     object_data.update(object_data['position'])
     c = conn.cursor()
     c.execute(u"""
-        INSERT INTO objects (
-            id,
-            object,
-            projection,
-            width,
-            x,
-            y
-        ) VALUES (
-            "%(id)s",
-            %(object)s,
-            %(projection)s,
-            %(width)s,
-            %(x)s,
-            %(y)s
-        )
-    """ % object_data)
-    print (u"""
         INSERT INTO objects (
             id,
             object,
