@@ -14,5 +14,5 @@ do
     python create_db.py
     killall python
     python planting.py &
-    sleep 10
+    sleep 900
 done
