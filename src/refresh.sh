@@ -9,9 +9,10 @@ do
     npm run build
     cd ../plantingjs-simpleserver/src
     git pull
+    rm -r static
     cp ../../plantingjs/dist static -r
     python create_db.py
     killall python
     python planting.py &
-    sleep 900
+    sleep 10
 done
