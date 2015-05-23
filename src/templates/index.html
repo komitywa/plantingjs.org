@@ -9,7 +9,23 @@
     </head>
     <body>
         <script type=text/javascript src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9fmhpMCKGM6BCMtsnn05GfxEK77jRHjc"></script>
-        <div id=viewport class=viewport></div>
+        <div id="viewport" class="viewport"></div>
+        <script type="text/javascript">
+            function simple_save_callback(planting) {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/save',
+                    data: JSON.stringify(planting),
+                    contentType: 'application/json;charset=UTF-8',
+                    dataType: 'html',
+                    success: function(responseData, textStatus, jqXHR) {
+                        $(location).attr('href', JSON.parse(responseData)['url']);
+                    },
+                });
+
+            }
+        </script>
         <script src="{{ url_for('static', filename='js/vendor.js') }}"></script>
         <script src="{{ url_for('static', filename='js/planting.js') }}"></script> 
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
