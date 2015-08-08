@@ -7,7 +7,7 @@ do
     cd ../../plantingjs
     git pull
     npm run build
-    cd ../plantingjs-simpleserver/src
+    cd ../plantingjs.org/src
     git pull
     rm -r static
     cp ../../plantingjs/dist static -r
@@ -16,3 +16,4 @@ do
     python planting.py &
     sleep 900
 done
+
