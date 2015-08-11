@@ -7,6 +7,8 @@ module: create_db
 import os
 import sqlite3
 
+db_path = os.path.join(u'..', u'..', u'plantings.sqlite')
+
 plantings_create = u"""
 CREATE TABLE plantings (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -74,12 +76,11 @@ objects_insert = u"""
 """
 
 
-
 def create_database():
-    if os.path.isfile('planting.sqlite'):
-        os.remove('planting.sqlite')
+    if os.path.isfile(db_path):
+        os.remove(db_path)
 
-    conn = sqlite3.connect('planting.sqlite')
+    conn = sqlite3.connect(db_path)
     c = conn.cursor()
     c.execute(plantings_create)
     c.execute(objects_create)

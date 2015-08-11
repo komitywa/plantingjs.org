@@ -8,6 +8,8 @@ import sqlite3
 from flask import jsonify
 from flask import request
 
+from create_db import db_path
+
 
 GET_PLANTING = """
 SELECT * FROM plantings where id={}
@@ -31,7 +33,7 @@ class PlantingObject(object):
 class Planting(object):
 
     def __init__(self, id_):
-        conn = sqlite3.connect('planting.sqlite')
+        conn = sqlite3.connect(db_path)
         c = conn.cursor()
         planting = c.execute(GET_PLANTING.format(id_)).fetchone()
         self.manifesto = planting[1]

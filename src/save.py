@@ -9,6 +9,7 @@ import sqlite3
 
 from flask import request
 
+from create_db import db_path
 
 def save_planting(conn, planting_data):
     c = conn.cursor()
@@ -60,7 +61,7 @@ def save_object(conn, planting_id, object_data):
 
 
 def save():
-    conn = sqlite3.connect('planting.sqlite')
+    conn = sqlite3.connect(db_path)
     planting = request.json
     objects = request.json['objects']
 
