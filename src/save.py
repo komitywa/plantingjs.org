@@ -11,6 +11,7 @@ from flask import request
 
 from create_db import db_path
 
+
 def save_planting(conn, planting_data):
     c = conn.cursor()
     c.execute(u"""
@@ -33,7 +34,6 @@ def save_planting(conn, planting_data):
     c.execute(u"""SELECT last_insert_rowid() FROM plantings""")
     conn.commit()
     return c.fetchone()[0]
-
 
 
 def save_object(conn, planting_id, object_data):

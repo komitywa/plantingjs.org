@@ -18,17 +18,21 @@ app = Flask(__name__, static_url_path='/static')
 def main():
     return render_template('index.html', name=None)
 
+
 @app.route('/manifesto.json')
 def send_manifesto():
     return app.send_static_file('manifesto.json')
+
 
 @app.route('/objects/<path:path>')
 def send_objects(path):
     return app.send_static_file('objects/%s' % path)
 
+
 @app.route('/callback')
 def callback():
     return render_template('save_callback.html')
+
 
 @app.route('/planted/<int:planted_id>')
 def planged(planted_id):

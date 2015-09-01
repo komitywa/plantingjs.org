@@ -8,7 +8,7 @@ import os
 import sqlite3
 
 here = os.path.dirname(__file__)
-db_path = os.path.join(here, u'plantings.sqlite')
+db_path = os.path.join(here, u'..', u'..', u'plantings.sqlite')
 
 plantings_create = u"""
 CREATE TABLE plantings (

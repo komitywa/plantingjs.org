@@ -6,7 +6,6 @@ module: get_planting
 import sqlite3
 
 from flask import jsonify
-from flask import request
 
 from create_db import db_path
 
@@ -19,8 +18,9 @@ GET_OBJECTS = """
 SELECT * FROM objects where id={}
 """
 
+
 class PlantingObject(object):
-    
+
     def __init__(self, object_row):
         self.object = object_row[1]
         self.projection = object_row[2]
@@ -29,6 +29,7 @@ class PlantingObject(object):
             "x": object_row[4],
             "y": object_row[5]
         }
+
 
 class Planting(object):
 
@@ -46,7 +47,6 @@ class Planting(object):
             PlantingObject(row) for row in c.execute(GET_OBJECTS.format(id_))
         ]
         conn.close()
-
 
 
 def get_planting(path):
