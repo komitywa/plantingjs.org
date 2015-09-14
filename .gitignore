@@ -1,4 +1,3 @@
 *.pyc
 *.sqlite
-src/static
-
+src/static/plantingjs
