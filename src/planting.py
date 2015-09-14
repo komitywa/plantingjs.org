@@ -17,7 +17,7 @@ app.config['JS_ENGINE_PATH'] = 'plantingjs/%s'
 
 @app.route('/')
 def main():
-    return render_template('index.html', name="Home")
+    return render_template('index.html', name=None)
 
 @app.route('/manifesto.json')
 def send_manifesto():
