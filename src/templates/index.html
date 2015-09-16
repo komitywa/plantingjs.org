@@ -1,33 +1,7 @@
-<!doctype html>
-<html>
-    <head> 
-        <meta charset=utf-8>
-        <meta name=description>
-        <meta name=viewport content="width=device-width, initial-scale=1, minimal-ui">
-        <title>plantingjs</title>
-        <link rel=stylesheet href="{{ url_for('static', filename='styles/main.css') }}">
-    </head>
-    <body>
-        <script type=text/javascript src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9fmhpMCKGM6BCMtsnn05GfxEK77jRHjc"></script>
-        <div id="viewport" class="viewport"></div>
-        <script type="text/javascript">
-            function simple_save_callback(planting) {
+{% extends "layout.html" %}
 
-                $.ajax({
-                    type: 'POST',
-                    url: '/save',
-                    data: JSON.stringify(planting),
-                    contentType: 'application/json;charset=UTF-8',
-                    dataType: 'html',
-                    success: function(responseData, textStatus, jqXHR) {
-                        $(location).attr('href', JSON.parse(responseData)['url']);
-                    },
-                });
-
-            }
-        </script>
-        <script src="{{ url_for('static', filename='js/vendor.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/planting.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    </body>
-</html> 
+{% block body %}
+    {% include "section/about.html" %}
+    {% include "section/engine.html" %}
+    {% include "section/plants.html" %}
+{% endblock %}
