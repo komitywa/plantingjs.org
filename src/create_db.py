@@ -29,7 +29,8 @@ CREATE TABLE objects (
     projection INTEGER,
     width REAL,
     x REAL,
-    y REAL
+    y REAL,
+    layer INTEGER
 )
 """
 
@@ -58,14 +59,16 @@ objects_insert = u"""
             projection,
             width,
             x,
-            y
+            y,
+            layer
         ) VALUES (
             "1",
             0,
             0,
             0.0808625336927,
             0.200539083558,
-            0.022371967655
+            0.022371967655,
+            1
         ), (
             "1",
             0,

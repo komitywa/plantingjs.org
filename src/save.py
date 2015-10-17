@@ -47,14 +47,16 @@ def save_object(conn, planting_id, object_data):
             projection,
             width,
             x,
-            y
+            y,
+            layer
         ) VALUES (
             "%(id)s",
             %(object)s,
             %(projection)s,
             %(width)s,
             %(x)s,
-            %(y)s
+            %(y)s,
+            %(layer)s
         )
     """ % object_data)
     conn.commit()
