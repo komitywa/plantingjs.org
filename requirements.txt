@@ -1,0 +1,4 @@
+flask
+pep8
+coverage
+codecov

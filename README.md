@@ -1,3 +1,10 @@
+PLANTINGJS.ORG
+====
+
+[![Join the chat at https://gitter.im/komitywa/plantingjs.org](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/komitywa/plantingjs.org?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/komitywa/plantingjs.org.svg)](https://travis-ci.org/komitywa/plantingjs.org)
+[![codecov.io](http://codecov.io/github/komitywa/plantingjs.org/coverage.svg?branch=master)](http://codecov.io/github/komitywa/plantingjs.org?branch=master)
+
 ## Synopsis
 
 Flask-based application that run http://plantingjs.org
