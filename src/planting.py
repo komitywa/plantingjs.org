@@ -19,14 +19,19 @@ app.config['JS_ENGINE_PATH'] = 'plantingjs/%s'
 def main():
     return render_template('index.html', name=None)
 
+
 @app.route('/manifesto.json')
 def send_manifesto():
-    return app.send_static_file(app.config['JS_ENGINE_PATH'] % 'manifesto.json')
+    return app.send_static_file(
+        app.config['JS_ENGINE_PATH'] % 'manifesto.json'
+    )
 
 
 @app.route('/objects/<path:path>')
 def send_objects(path):
-    return app.send_static_file(app.config['JS_ENGINE_PATH'] % 'objects/%s' % path)
+    return app.send_static_file(
+        app.config['JS_ENGINE_PATH'] % 'objects/%s' % path
+    )
 
 
 @app.route('/callback')
