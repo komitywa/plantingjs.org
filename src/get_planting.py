@@ -3,6 +3,7 @@
 u"""
 module: get_planting
 """
+
 import sqlite3
 
 from flask import jsonify
@@ -29,6 +30,7 @@ class PlantingObject(object):
             "x": object_row[4],
             "y": object_row[5]
         }
+        self.layer = object_row[6]
 
 
 class Planting(object):
