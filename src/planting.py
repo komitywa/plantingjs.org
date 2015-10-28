@@ -27,6 +27,13 @@ def send_manifesto():
     )
 
 
+@app.route('/forview.json')
+def send_forview():
+    return app.send_static_file(
+        app.config['JS_ENGINE_PATH'] % 'forview.json'
+    )
+
+
 @app.route('/objects/<path:path>')
 def send_objects(path):
     return app.send_static_file(
