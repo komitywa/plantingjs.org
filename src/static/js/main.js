@@ -4,6 +4,25 @@ $(function() {
         manifestoUrl: '/manifesto.json',
         googleApiKey: 'AIzaSyD9fmhpMCKGM6BCMtsnn05GfxEK77jRHjc'
     });
+
+
+    var load_plant = function(url) {
+        return fetch(url)
+            .then(function(res) {
+                return res.json()
+                    .then(function(plant) {
+                        PlantingInstanceViewer.initViewer(plant);
+                    });
+            });
+    };
+
+    var PlantingInstanceViewer = new Planting( {
+        container: document.querySelector('.viewport-viewer'),
+        manifestoUrl: '/manifesto.json',
+        googleApiKey: 'AIzaSyD9fmhpMCKGM6BCMtsnn05GfxEK77jRHjc'
+    });
+    load_plant('/forview.json');
+
     var $header = $('.js-header');
     var headerOffset = $header.offset().top + $header.height();
     var $firstSection = $('.section').first();
