@@ -1,7 +1,7 @@
 $(function() {
     var PlantingInstance = new Planting( {
         container: document.querySelector('.viewport'),
-        manifestoUrl: '/manifesto.json',
+        manifestoUrl: '/static/manifesto.json',
         googleApiKey: 'AIzaSyD9fmhpMCKGM6BCMtsnn05GfxEK77jRHjc'
     });
 
@@ -18,10 +18,10 @@ $(function() {
 
     var PlantingInstanceViewer = new Planting( {
         container: document.querySelector('.viewport-viewer'),
-        manifestoUrl: '/manifesto.json',
+        manifestoUrl: '/static/manifesto.json',
         googleApiKey: 'AIzaSyD9fmhpMCKGM6BCMtsnn05GfxEK77jRHjc'
     });
-    load_plant('/forview.json');
+    load_plant('/static/forview.json');
 
     var $header = $('.js-header');
     var headerOffset = $header.offset().top + $header.height();

@@ -12,33 +12,11 @@ from get_planting import get_planting
 
 
 app = Flask(__name__, static_url_path='/static')
-app.config['JS_ENGINE_PATH'] = 'plantingjs/%s'
 
 
 @app.route('/')
 def main():
     return render_template('index.html', name=None)
-
-
-@app.route('/manifesto.json')
-def send_manifesto():
-    return app.send_static_file(
-        app.config['JS_ENGINE_PATH'] % 'manifesto.json'
-    )
-
-
-@app.route('/forview.json')
-def send_forview():
-    return app.send_static_file(
-        app.config['JS_ENGINE_PATH'] % 'forview.json'
-    )
-
-
-@app.route('/objects/<path:path>')
-def send_objects(path):
-    return app.send_static_file(
-        app.config['JS_ENGINE_PATH'] % 'objects/%s' % path
-    )
 
 
 @app.route('/callback')
