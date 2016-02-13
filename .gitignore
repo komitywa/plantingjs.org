@@ -1,5 +1,6 @@
 *.pyc
 *.sqlite
-src/static/plantingjs
+src/static/
 *egg-info/
 build/
+node_modules/
