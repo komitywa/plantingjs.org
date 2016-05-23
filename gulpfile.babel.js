@@ -20,13 +20,13 @@ gulp.task('default', function() {
 });
 
 
-/* Removing whole ./src/static/ directory */
-gulp.task('clean', del.bind(null, './src/static'));
+/* Removing whole ./dist/ directory */
+gulp.task('clean', del.bind(null, './dist'));
 
 
 /* Building JS */
 gulp.task('js', function() {
-  return gulp.src('./src/assets/js/main.js')
+  return gulp.src('./src/js/main.js')
     .pipe(plumber())
     .pipe(tap(function(file) {
       const dom = domain.create();
@@ -43,7 +43,7 @@ gulp.task('js', function() {
           entries: [file.path],
           debug: false,
           standalone: 'Planting',
-          paths: ['./node_modules/', './src/assets/'],
+          paths: ['./node_modules/', './src/'],
           transform: [
             [hbsfy, {
               global: true,
@@ -57,17 +57,17 @@ gulp.task('js', function() {
         }).bundle();
       });
     }))
-    .pipe(gulp.dest('./src/static/js/'));
+    .pipe(gulp.dest('./dist/js/'));
 });
 /* End of building JS */
 
 /* Building CSS */
 gulp.task('css:main', function() {
-  return gulp.src('./src/assets/css/**/*.scss')
+  return gulp.src('./src/css/**/*.scss')
     .pipe(sass())
     .pipe(autoprefixer({browsers: ['last 1 version']}))
     .pipe(concat('main.css'))
-    .pipe(gulp.dest('./src/static/css/'));
+    .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('css:vendor', function() {
@@ -78,7 +78,7 @@ gulp.task('css:vendor', function() {
   ])
     .pipe(sass())
     .pipe(concat('vendor.css'))
-    .pipe(gulp.dest('./src/static/css/'));
+    .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('css', ['css:vendor', 'css:main']);
@@ -90,15 +90,15 @@ gulp.task('fonts', function() {
   return gulp.src('./node_modules/plantingjs/src/fonts/**/*')
     .pipe(filter('**/*.{eot,svg,ttf,woff}'))
     .pipe(flatten())
-    .pipe(gulp.dest('./src/static/fonts'));
+    .pipe(gulp.dest('./dist/fonts'));
 });
 /* End of building fonts */
 
 
 /* Building assets */
 gulp.task('assets', function() {
-  return gulp.src('./src/assets/assets/**/*')
-    .pipe(gulp.dest('./src/static'));
+  return gulp.src('./src/assets/**/*')
+    .pipe(gulp.dest('./dist'));
 });
 /* End of building assets */
 

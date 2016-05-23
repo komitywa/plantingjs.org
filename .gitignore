@@ -1,6 +1,4 @@
-*.pyc
-*.sqlite
-src/static/
-*egg-info/
-build/
 node_modules/
+dist/
+
+fabfile.pyc

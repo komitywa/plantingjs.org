@@ -4,13 +4,13 @@ import jquery from 'jquery';
 jquery(function() {
   const PlantingInstance = new Planting( {
     container: document.querySelector('.viewport'),
-    manifestoUrl: '/static/manifesto.json',
+    manifestoUrl: '/manifesto.json',
     googleApiKey: 'AIzaSyD9fmhpMCKGM6BCMtsnn05GfxEK77jRHjc',
   });
 
   const PlantingInstanceViewer = new Planting( {
     container: document.querySelector('.viewport-viewer'),
-    manifestoUrl: '/static/manifesto.json',
+    manifestoUrl: '/manifesto.json',
     googleApiKey: 'AIzaSyD9fmhpMCKGM6BCMtsnn05GfxEK77jRHjc',
   });
 
@@ -24,7 +24,7 @@ jquery(function() {
       });
   };
 
-  loadPlanting('/static/forview.json');
+  loadPlanting('/forview.json');
 
   const $header = jquery('.js-header');
   const headerOffset = $header.offset().top + $header.height();

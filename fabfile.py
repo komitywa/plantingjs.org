@@ -18,7 +18,7 @@ env.forward_agent = True
 def update():
     u"""Function defining all steps required to properly update application."""
 
-    with cd('/var/www/plantingjs_org/plantingjs.org'):
+    with cd('/var/www/plantingjs_org'):
         run('git pull')
         run('git checkout master')
         run('npm cache clear')
